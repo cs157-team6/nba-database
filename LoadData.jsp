@@ -54,7 +54,7 @@
 		    												+ "('United Center', 'Illinois', 'Chicago', 20917), ('Wells Fargo Center', 'Pennsylvania', 'Philadelphia', 20478);";
 		    stmt.executeUpdate(insertStadium); 
 		    
-		    String createTeamTable = "CREATE TABLE Team (Name VARCHAR(100), Region VARCHAR(50));";
+		    String createTeamTable = "CREATE TABLE Team (Name VARCHAR(100), Region VARCHAR(50), PRIMARY KEY (Name));";
 		    stmt.executeUpdate(createTeamTable);
 		    String insertTeam = "INSERT INTO Team VALUES ('Orlando Magic', 'Southeast'), ('San Antonio Spurs', 'Southwest'), ('Brooklyn Nets', 'Atlantic'), "
 		    										  + "('Golden State Warriors', 'Pacific'), ('Milwaukee Bucks', 'Central'), ('Miami Heat', 'Southeast'), "
@@ -63,8 +63,49 @@
 		    										  + "('Chicago Bulls', 'Central'), ('Philadelphia 76ers', 'Atlantic');";
 			stmt.executeUpdate(insertTeam);
 	    
+			String createPlayerTable = "CREATE TABLE Player (Team_Name VARCHAR(100), Number TINYINT, Name VARCHAR(50), Age TINYINT, Position VARCHAR(20));";
+			stmt.executeUpdate(createPlayerTable);
+			String insertPlayer = "INSERT INTO Player VALUES ('Orlando Magic', 1, 'Jonathan Isaac', 24, 'F'), ('Orlando Magic', 3, 'Chuma Okeke', 23, 'F'), "
+														  + "('Orlando Magic', 4, 'Jalen Suggs', 20, 'G'), ('Orlando Magic', 5, 'Mo Bamba', 23, 'C'), "
+														  + "('Orlando Magic', 7, 'Michael Carter-Williams', 30, 'G'), ('Orlando Magic', 13, 'R.J. Hampton', 20, 'G'), "
+														  + "('Orlando Magic', 14, 'Gary Harris', 27, 'G'), ('Orlando Magic', 15, 'Mychal Mulder', 27, 'G'), "
+														  + "('Orlando Magic', 17, 'Ignas Brazdeikis', 22, 'F'), ('Orlando Magic', 20, 'Markelle Fultz', 23, 'G'), "
+														  + "('Orlando Magic', 21, 'Moritz Wagner', 24, 'F-C'), ('Orlando Magic', 22, 'Franz Wagner', 20, 'F'), "
+														  + "('Orlando Magic', 31, 'Terrence Ross', 30, 'G-F'), ('Orlando Magic', 33, 'Robin Lopez', 33, 'C'), "
+														  + "('Orlando Magic', 34, 'Wendell Carter Jr.', 22, 'C-F'), ('Orlando Magic', 50, 'Cole Anthony', 21, 'G'), "
+														  + "('Orlando Magic', 55, 'E Twaun Moore', 32, 'G');";
+			stmt.executeUpdate(insertPlayer);
+
+			String createMatchesTable = "CREATE TABLE Matches (Match_ID INT, Team1Name VARCHAR(100), Team2Name VARCHAR(100), Date DATE, Time TIME, Stadium_Name VARCHAR(100), Referee_ID INT, PRIMARY KEY (Match_ID));";
+			stmt.executeUpdate(createMatchesTable);
+			String insertMatch = "";
+			//stmt.executeUpdate(insertMatch);
 			
+			String createReservedTable = "CREATE TABLE Reserved (Seat_Number INT, Stadium_Name VARCHAR(100), Match_ID INT, Customer_ID INT, Price INT)";
+			stmt.executeUpdate(createReservedTable);
+			String insertReserved = "";
+			//stmt.executeUpdate(insertReserved);
 		
+			String createSeatTable = "CREATE TABLE Seat (Seat_Number INT, Stadium_Name VARCHAR(100));";
+			stmt.executeUpdate(createSeatTable);
+			String insertSeat = "";
+			//stmt.executeUpdate(insertSeat);
+			
+			String createRecordTable = "CREATE TABLE Record (Record_ID INT, Description VARCHAR(1000), Value TINYINT, Player_Number TINYINT, Team_Name VARCHAR(100), Match_ID INT);";
+			stmt.executeUpdate(createRecordTable);
+			String insertRecord = "";
+			//stmt.executeUpdate(insertRecord);
+			
+			String createShotTable = "CREATE TABLE Shot (Match_ID INT, Shot_Number INT, Shot_Type VARCHAR(100), Player_Number TINYINT, Team_Name VARCHAR(100));";
+			stmt.executeUpdate(createShotTable);
+			String insertShot = "";
+			//stmt.executeUpdate(insertShot);
+			
+			String createRefereeTable = "CREATE TABLE Referee (Referee_ID INT, First_Name VARCHAR(100), Last_Name VARCHAR(100), PRIMARY KEY (Referee_ID));";
+			stmt.executeUpdate(createRefereeTable);
+			String insertReferee = "";
+			//stmt.executeUpdate(insertReferee);
+			
            
             stmt.close();
             con.close();
