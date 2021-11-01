@@ -79,32 +79,32 @@
 			String createMatchesTable = "CREATE TABLE Matches (Match_ID INT, Team1Name VARCHAR(100), Team2Name VARCHAR(100), Date DATE, Time TIME, Stadium_Name VARCHAR(100), Referee_ID INT, PRIMARY KEY (Match_ID));";
 			stmt.executeUpdate(createMatchesTable);
 			String insertMatch = "";
-			//stmt.executeUpdate(insertMatch);
+			stmt.executeUpdate(insertMatch);
 			
 			String createReservedTable = "CREATE TABLE Reserved (Seat_Number INT, Stadium_Name VARCHAR(100), Match_ID INT, Customer_ID INT, Price INT)";
 			stmt.executeUpdate(createReservedTable);
 			String insertReserved = "";
-			//stmt.executeUpdate(insertReserved);
+			stmt.executeUpdate(insertReserved);
 		
 			String createSeatTable = "CREATE TABLE Seat (Seat_Number INT, Stadium_Name VARCHAR(100));";
 			stmt.executeUpdate(createSeatTable);
 			String insertSeat = "";
-			//stmt.executeUpdate(insertSeat);
+			stmt.executeUpdate(insertSeat);
 			
 			String createRecordTable = "CREATE TABLE Record (Record_ID INT, Description VARCHAR(1000), Value TINYINT, Player_Number TINYINT, Team_Name VARCHAR(100), Match_ID INT);";
 			stmt.executeUpdate(createRecordTable);
 			String insertRecord = "";
-			//stmt.executeUpdate(insertRecord);
+			stmt.executeUpdate(insertRecord);
 			
 			String createShotTable = "CREATE TABLE Shot (Match_ID INT, Shot_Number INT, Shot_Type VARCHAR(100), Player_Number TINYINT, Team_Name VARCHAR(100));";
 			stmt.executeUpdate(createShotTable);
 			String insertShot = "";
-			//stmt.executeUpdate(insertShot);
+			stmt.executeUpdate(insertShot);
 			
 			String createRefereeTable = "CREATE TABLE Referee (Referee_ID INT, First_Name VARCHAR(100), Last_Name VARCHAR(100), PRIMARY KEY (Referee_ID));";
 			stmt.executeUpdate(createRefereeTable);
 			String insertReferee = "";
-			//stmt.executeUpdate(insertReferee);
+			stmt.executeUpdate(insertReferee);
 			
            
             stmt.close();
