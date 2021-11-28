@@ -1,16 +1,16 @@
 "Match_ID";"Team1Name";"Team2Name";"Date";"Time";"Stadium_Name";"Referee_ID"
-1;"Orlando Magic";"San Antonio Spurs";"2021-09-24";"18:43:41";"Amway Center";1
-2;"San Antonio Spurs";"Brooklyn Nets";"2021-01-16";"12:12:42";"AT&T Center";2
-3;"Brooklyn Nets";"Golden State Warriors";"2021-09-20";"01:01:02";"Barclays Center";3
-4;"Golden State Warriors";"Milwaukee Bucks";"2021-10-03";"04:40:06";"Chase Center";4
-5;"Milwaukee Bucks";"Miami Heat";"2021-08-19";"16:52:09";"Fiserv Forum";5
-6;"Miami Heat";"Sacramento Kings";"2021-10-25";"21:54:58";"FTX Arena";6
-7;"Sacramento Kings";"Portland Trail Blazers";"2021-05-23";"12:03:11";"Golden 1 Center";7
-8;"Portland Trail Blazers";"Cleveland Cavaliers";"2021-06-22";"13:29:14";"Madison Square Guarden";8
-9;"Cleveland Cavaliers";"Charlotte Hornets";"2021-05-28";"05:02:15";"Moda Center";9
-10;"Charlotte Hornets";"Minnesota Timberwolves";"2021-10-30";"22:55:13";"Rocket Mortgage FieldHouse";10
-11;"Minnesota Timberwolves";"Chicago Bulls";"2021-06-12";"13:41:54";"Spectrum Center";11
-12;"Chicago Bulls";"Philadelphia 76ers";"2021-03-25";"03:57:36";"Target Center";12
-13;"Philadelphia 76ers";"New York Knicks";"2021-01-12";"06:38:34";"United Center";13
-14;"New York Knicks";"Dallas Mavericks";"2021-05-20";"11:19:33";"Wells Fargo Center";14
-15;"Dallas Mavericks";"Orlando Magic";"2021-01-06";"05:42:05";"State Farm Arena";15
+1;"Orlando Magic";"San Antonio Spurs";"09-24-2021";"06:45 PM";"Amway Center";1
+2;"San Antonio Spurs";"Brooklyn Nets";"01-16-2021";"12:15 PM";"AT&T Center";2
+3;"Brooklyn Nets";"Golden State Warriors";"09-20-2021";"01:00 PM";"Barclays Center";3
+4;"Golden State Warriors";"Milwaukee Bucks";"10-03-2021";"04:45 PM";"Chase Center";4
+5;"Milwaukee Bucks";"Miami Heat";"08-19-2021";"05:00 PM";"Fiserv Forum";5
+6;"Miami Heat";"Sacramento Kings";"10-25-2021";"11:45 AM";"FTX Arena";6
+7;"Sacramento Kings";"Portland Trail Blazers";"05-23-2021";"12:00 PM";"Golden 1 Center";7
+8;"Portland Trail Blazers";"Cleveland Cavaliers";"06-22-2021";"01:30 PM";"Madison Square Guarden";8
+9;"Cleveland Cavaliers";"Charlotte Hornets";"05-28-2021";"09:00 AM";"Moda Center";9
+10;"Charlotte Hornets";"Minnesota Timberwolves";"10-30-2021";"11:00 AM";"Rocket Mortgage FieldHouse";10
+11;"Minnesota Timberwolves";"Chicago Bulls";"06-12-2021";"01:45 PM";"Spectrum Center";11
+12;"Chicago Bulls";"Philadelphia 76ers";"03-25-2021";"04:00 PM";"Target Center";12
+13;"Philadelphia 76ers";"New York Knicks";"01-12-2021";"06:30 PM";"United Center";13
+14;"New York Knicks";"Dallas Mavericks";"05-20-2021";"11:30 AM";"Wells Fargo Center";14
+15;"Dallas Mavericks";"Orlando Magic";"01-06-2021";"05:45 PM";"State Farm Arena";15
