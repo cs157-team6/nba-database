@@ -34,7 +34,7 @@ table, th, td {
 			<div class="collapse navbar-collapse" id="navbarNav-1">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="Matches.html">Matches</a></li>
+					<li class="nav-item"><a class="nav-link" href="Matches.jsp">Matches</a></li>
 					<li class="nav-item"><a class="nav-link" href="Teams.jsp">Teams</a></li>
 				</ul>
 			</div>
