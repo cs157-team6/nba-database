@@ -33,9 +33,7 @@ table, th, td {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav-1">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="Matches.jsp">Matches</a></li>
-					<li class="nav-item"><a class="nav-link" href="Teams.jsp">Teams</a></li>
+					<li class="nav-item"><a class="nav-link" href="Home.jsp">Home</a></li>
 				</ul>
 			</div>
 		</div>
@@ -50,14 +48,12 @@ table, th, td {
 				String db = "cs157A-team6";
 				String user; // assumes database name is the same as username
 				user = "root";
-				String password = "6eP5hy!Vy@@QstA3o8mwRdnK";
+				String password = "root";
 				try {
-
 					java.sql.Connection con;
 					Class.forName("com.mysql.jdbc.Driver");
 					con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs157A-team6?autoReconnect=true&useSSL=false", user,
 					password);
-
 					Statement stmt = con.createStatement();
 					ResultSet rs = stmt.executeQuery("SELECT * FROM Team");
 					out.println("<table><tr><th>Logo</th><th>Team Name</th><th>More Info</th></tr>");
