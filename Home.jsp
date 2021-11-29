@@ -39,6 +39,7 @@ table, th, td {
 					<li class="nav-item"><a class="nav-link" href="Players.jsp">Players</a></li>
 					<li class="nav-item"><a class="nav-link" href="Records.jsp">Records</a></li>
 					<li class="nav-item"><a class="nav-link" href="Stadiums.jsp">Stadiums</a></li>
+					<li class="nav-item"><a class="nav-link" href="Tickets.jsp">Tickets</a></li>
 				</ul>
 			</div>
 		</div>
