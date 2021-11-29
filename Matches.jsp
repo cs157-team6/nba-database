@@ -10,17 +10,58 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
 <style>
-table, th, td {
-	border: 1px solid black;
+body {
+	background-color: #eee;
+}
+
+#searchBar {
+	background-image: url('assets/MagnifyingGlass.png');
+	background-position: 13px 13px;
+	background-repeat: no-repeat;
+	display: block;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th, td {
 	text-align: center;
-	margin: 50px auto;
-	padding: 5px;
-	min-width: 200px;
+	width: 200px;
+}
+
+th {
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
 	background-color: white;
 }
 
-body {
+td {
+	padding: 0;
 	background-color: #eee;
+}
+
+td div {
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+	padding: 10px;
+	background-color: white;
+	height: 160px;
+}
+
+#lastCol {
+	border-right: 1px solid black;
 }
 </style>
 </head>
@@ -66,9 +107,10 @@ body {
 					Statement stmtTeam1 = con.createStatement();
 					Statement stmtTeam2 = con.createStatement();
 					ResultSet rs = stmt.executeQuery("SELECT * FROM matches NATURAL JOIN referee ORDER BY Date ASC, Time ASC");
+					out.println(
+					"<input type='text' id='searchBar' onkeyup='searchFunc()' placeholder='Search by team, stadium, or referee...'><table id = 'MatchesTable'><tr><th>Date & Time</th><th>Team 1</th><th>Team 2</th><th>Stadium</th><th>Refereed By</th></tr>");
 
 					while (rs.next()) {
-
 						ResultSet rsTeam1 = stmtTeam1
 						.executeQuery("SELECT ImgLinkHTML FROM team WHERE Name = '" + rs.getString(3) + "'");
 						rsTeam1.next();
@@ -76,16 +118,16 @@ body {
 						.executeQuery("SELECT ImgLinkHTML FROM team WHERE Name = '" + rs.getString(4) + "'");
 						rsTeam2.next();
 
-						out.println(
-						"<table><tr><th>Date & Time</th><th>Team 1</th><th>Team 2</th><th>Stadium</th><th>Refereed By</th></tr><tr><td>"
-								+ rs.getString(5) + "<br>" + rs.getString(6) + "</td><td>" + rsTeam1.getString(1)
-								+ "<br><br><b>" + rs.getString(3) + "</b></td><td>" + rsTeam2.getString(1) + "<br><br><b>"
-								+ rs.getString(4) + "</td><td>" + rs.getString(7) + "</td><td>" + rs.getString(8) + " "
-								+ rs.getString(9) + "</td></tr></table>");
+						out.println("<tr><td><div><br><br>" + rs.getString(5) + "<br>" + rs.getString(6) + "</div></td><td><div>"
+						+ rsTeam1.getString(1) + "<br><br><b>" + rs.getString(3) + "</b></div></td><td><div>"
+						+ rsTeam2.getString(1) + "<br><br><b>" + rs.getString(4) + "</b></td><td><div><br><br>"
+						+ rs.getString(7) + "</div></td><td><div id = 'lastCol'><br><br>" + rs.getString(8) + " "
+						+ rs.getString(9) + "</div></td></tr>");
 
 						rsTeam2.close();
 						rsTeam1.close();
 					}
+					out.println("</table>");
 					rs.close();
 					stmtTeam1.close();
 					stmt.close();
@@ -98,8 +140,32 @@ body {
 		</section>
 	</main>
 	<footer class="page-footer"></footer>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		function searchFunc() {
+			input = document.getElementById("searchBar");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("MatchesTable");
+			row = table.getElementsByTagName("tr");
+			for (i = 0; i < row.length; i++) {
+				cell = row[i].getElementsByTagName("td")[0];
+				cell1 = row[i].getElementsByTagName("td")[1];
+				cell2 = row[i].getElementsByTagName("td")[2];
+				cell3 = row[i].getElementsByTagName("td")[3];
+				cell4 = row[i].getElementsByTagName("td")[4];
+				if (cell) {
+					if ((cell.innerHTML.toUpperCase().indexOf(filter) > -1)
+							|| (cell1.innerHTML.toUpperCase().indexOf(filter) > -1)
+							|| (cell2.innerHTML.toUpperCase().indexOf(filter) > -1)
+							|| (cell3.innerHTML.toUpperCase().indexOf(filter) > -1)
+							|| (cell4.innerHTML.toUpperCase().indexOf(filter) > -1)) {
+						row[i].style.display = "";
+					} else {
+						row[i].style.display = "none";
+					}
+				}
+			}
+		}
+	</script>
 </body>
 
 </html>
