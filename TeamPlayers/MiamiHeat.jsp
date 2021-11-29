@@ -24,7 +24,7 @@ table, th, td {
 	<nav
 		class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
 		<div class="container">
-			<a class="navbar-brand logo" href="#">NBA Database</a>
+			<a class="navbar-brand logo" href="../Home.html">NBA Database</a>
 			<button data-bs-toggle="collapse" class="navbar-toggler"
 				data-bs-target="#navbarNav-1">
 				<span class="visually-hidden">Toggle navigation</span><span
@@ -32,9 +32,12 @@ table, th, td {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav-1">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="../index.jsp">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="../Matches.jsp">Matches</a></li>
-					<li class="nav-item"><a class="nav-link" href="../Teams.jsp">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Matches.jsp">Matches</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Teams.jsp">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Players.jsp">Players</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Stadiums.jsp">Stadiums</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Records.jsp">Records</a></li>
 				</ul>
 			</div>
 		</div>
