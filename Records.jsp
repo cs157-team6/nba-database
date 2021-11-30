@@ -56,7 +56,8 @@ table, th, td {
 					password);
 					Statement stmt = con.createStatement();
 					//ResultSet rs = stmt.executeQuery("SELECT * FROM record");
-					ResultSet rs = stmt.executeQuery("select record.record_id, record.description, record.value, player.name, record.team_name, record.match_id from record, player where record.player_number = player.number;");
+					ResultSet rs = stmt.executeQuery("select record.record_id, record.description, record.value, player.name, record.team_name, record.match_id from record, player where record.player_number = player.number and   record.Team_Name = player.Team_Name;");
+
 					out.println("<table><tr><th>ID</th><th>Description</th><th>Value</th><th>Player Name</th><th>Team Name</th><th>Match ID</th></tr>");
 					while (rs.next()) {
 						out.println("<tr><td>" + rs.getString(1) + "</td><td>" + rs.getString(2) + "</td><td>" +rs.getString(3) + "</td><td>" + rs.getString(4) + "</td><td>" + rs.getString(5) + "</td><td>" + rs.getString(6) + "</td></tr>");
@@ -78,3 +79,4 @@ table, th, td {
 </body>
 
 </html>
+
