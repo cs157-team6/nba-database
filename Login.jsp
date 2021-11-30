@@ -60,7 +60,7 @@
 			            Email:
 			            <input type="text" name="email" required/><br>
 			            Password:
-			            <input type="text" name="pwd" required/>
+			            <input type="password" name="pwd" required/>
 						<br/>
 			            <input type="submit" value="Submit" >
 						<br/>
