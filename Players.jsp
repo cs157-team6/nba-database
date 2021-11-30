@@ -6,17 +6,38 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>NBA Teams</title>
-<link rel="stylesheet"
-	href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
 <style>
+#searchBar {
+	background-image: url('assets/img/MagnifyingGlass.png');
+	background-position: 13px 13px;
+	background-repeat: no-repeat;
+	display: block;
+	width: 550px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+}
+
 table, th, td {
 	border: 1px solid black;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5px;
+}
+
+#col1 {
+	min-width: 185px;
+}
+
+#col2 {
+	min-width: 190px;
 }
 </style>
 </head>
@@ -25,7 +46,7 @@ table, th, td {
 	<nav
 		class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
 		<div class="container">
-			<a class="navbar-brand logo" href="#">NBA Database</a>
+			<a class="navbar-brand logo" href="Home.html">NBA Database</a>
 			<button data-bs-toggle="collapse" class="navbar-toggler"
 				data-bs-target="#navbarNav-1">
 				<span class="visually-hidden">Toggle navigation</span><span
@@ -33,7 +54,12 @@ table, th, td {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav-1">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="Home.jsp">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="Matches.jsp">Matches</a></li>
+					<li class="nav-item"><a class="nav-link" href="Teams.jsp">Teams</a></li>
+					<li class="nav-item"><a class="nav-link" href="Players.jsp">Players</a></li>
+					<li class="nav-item"><a class="nav-link" href="Stadiums.jsp">Stadiums</a></li>
+					<li class="nav-item"><a class="nav-link" href="Records.jsp">Records</a></li>
 				</ul>
 			</div>
 		</div>
@@ -48,7 +74,7 @@ table, th, td {
 				String db = "cs157A-team6";
 				String user; // assumes database name is the same as username
 				user = "root";
-				String password = "tiger-23";
+				String password = "6eP5hy!Vy@@QstA3o8mwRdnK";
 				try {
 					java.sql.Connection con;
 					Class.forName("com.mysql.jdbc.Driver");
@@ -56,10 +82,11 @@ table, th, td {
 					password);
 					Statement stmt = con.createStatement();
 					ResultSet rs = stmt.executeQuery("SELECT * FROM player");
-					out.println("<table><tr><th>Name</th><th>Team Name</th><th>Position</th><th>Number</th><th>Age</th></tr>");
+					out.println(
+					"<input type='text' id='searchBar' onkeyup='searchFunc()' placeholder='Search by player, team, position, or number...'><table id = 'PlayersTable'><tr><th>Name</th><th>Team Name</th><th>Position</th><th>Number</th><th>Age</th></tr>");
 					while (rs.next()) {
-						out.println("<tr><td>" + rs.getString(3) + "</td><td>" + rs.getString(1) + "</td><td>" +rs.getString(5) + "</td><td>" + rs.getString(2) + "</td><td>" + rs.getString(4)
-						+ "</td></tr>");
+						out.println("<tr><td id = 'col1'>" + rs.getString(3) + "</td><td id = 'col2'>" + rs.getString(1) + "</td><td>" + rs.getString(5)
+						+ "</td><td>" + rs.getString(2) + "</td><td>" + rs.getString(4) + "</td></tr>");
 					}
 					out.println("</table>");
 					rs.close();
@@ -73,8 +100,30 @@ table, th, td {
 		</section>
 	</main>
 	<footer class="page-footer"></footer>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		function searchFunc() {
+			input = document.getElementById("searchBar");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("PlayersTable");
+			row = table.getElementsByTagName("tr");
+			for (i = 0; i < row.length; i++) {
+				cell = row[i].getElementsByTagName("td")[0];
+				cell1 = row[i].getElementsByTagName("td")[1];
+				cell2 = row[i].getElementsByTagName("td")[2];
+				cell3 = row[i].getElementsByTagName("td")[3];
+				if (cell) {
+					if ((cell.innerHTML.toUpperCase().indexOf(filter) > -1)
+							|| (cell1.innerHTML.toUpperCase().indexOf(filter) > -1)
+							|| (cell2.innerHTML.toUpperCase().indexOf(filter) > -1)
+							|| (cell3.innerHTML.toUpperCase().indexOf(filter) > -1)) {
+						row[i].style.display = "";
+					} else {
+						row[i].style.display = "none";
+					}
+				}
+			}
+		}
+	</script>
 </body>
 
 </html>
