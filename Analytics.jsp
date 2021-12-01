@@ -82,7 +82,8 @@ table, th, td {
 					out.println(
                                         "<input type='text' id='searchBar' onkeyup='searchFunc()' placeholder='Search for Match...'><table id = 'MatchTable'><tr><th>Match_ID</th><th>Team1Name</th><th>Team2Name</th><th>Analysis</th></tr>");
 					while (rs.next()) {
-						out.println("<tr><td id='col1'>" + rs.getString(1) + "</td><td id='col2'>" + rs.getString(2) + "</td><td id='col3'>" + rs.getString(3) + "</td><td id='col4'>" + "<a href = \"MatchAnalysis.jsp\" style=\"color:blue\">Analysis</a>" + "</td></tr>");
+						
+						out.println("<tr><td id='col1'>" + rs.getString(1) + "</td><td id='col2'>" + rs.getString(2) + "</td><td id='col3'>" + rs.getString(3) + "</td><td id='col4'>" + "<a href = \"MatchAnalysis.jsp?matchid=" + rs.getString(1) +"\" style=\"color:blue\">Analysis</a>" + "</td></tr>");
 					}
 					out.println("</table>");
 					rs.close();
@@ -117,3 +118,4 @@ table, th, td {
 </body>
 
 </html>
+
