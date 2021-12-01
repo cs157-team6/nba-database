@@ -1,22 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
-    <!DOCTYPE html>
     <html>
 
     <head>
 		<meta charset="utf-8">
-		<meta name="viewport"
-		content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<title>Projects - CS157A</title>
-		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
-		<style>
-			table, th, td {
-			border: 1px solid black;
-			text-align: center;
-			margin-left: auto;
-			margin-right: auto;
-			}
-		</style>
+    	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    	<link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
 	</head>
 
     <body>
@@ -47,26 +39,21 @@
         </script>
 
 		<main class="page projects-page">
-			<section class="portfolio-block projects-cards">
-				<div class="container">
-					<h1>NBA Database Login</h1>
-			        <form name="login" action="LoginServlet" method="post" onSubmit="return ValidateEmail();">
-						<%
-						    if(null!=request.getAttribute("errorMsg"))
-						    {
-						        out.println("<b class=\"text-danger\">" + request.getAttribute("errorMsg") + "</b> <br/>");
-						    }
-						%>
-			            Email:
-			            <input type="text" name="email" required/><br>
-			            Password:
-			            <input type="password" name="pwd" required/>
-						<br/>
-			            <input type="submit" value="Submit" >
-						<br/>
-						<a href="<%= request.getContextPath() + "/Register.jsp"%>">Not Registered? Click Here!</a>
-			        </form>
-	    		</div>
+			<section class="login-clean">
+		        <form name="login" action="LoginServlet" method="post" onSubmit="return ValidateEmail();">
+            		<h2 class="visually-hidden">NBA Database Login</h2>
+            		<div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+					<%
+					    if(null!=request.getAttribute("errorMsg"))
+					    {
+					        out.println("<b class=\"text-danger\">" + request.getAttribute("errorMsg") + "</b> <br/>");
+					    }
+					%>
+            		<div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+            		<div class="mb-3"><input class="form-control" type="password" name="pwd" required placeholder="Password"></div>
+            		<div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div>
+		            <a class="forgot" href="<%= request.getContextPath() + "/Register.jsp"%>">Not Registered? Click Here!</a>
+		        </form>
 			</section>
 		</main>
     </body>
