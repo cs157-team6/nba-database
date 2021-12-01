@@ -24,6 +24,7 @@
 	border: 1px solid #ddd;
 }
 table, th, td {
+	caption-side: top;
 	border: 1px solid black;
 	text-align: center;
 	margin-left: auto;
@@ -55,8 +56,7 @@ table, th, td {
 			<div class="collapse navbar-collapse" id="navbarNav-1">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="Matches.jsp">Matches</a></li>
-					<li class="nav-item"><a class="nav-link" href="Teams.jsp">Teams</a></li>
+					<li class="nav-item"><a class="nav-link" href="Analytics.jsp">Analytics</a></li>
 				</ul>
 			</div>
 		</div>
@@ -67,6 +67,8 @@ table, th, td {
 				<div class="heading">
 					<h2>Match Analytics</h2>
 				</div>
+	
+				<% String matchidstring = request.getParameter("matchid"); %>;
 				<%
 				String db = "cs157A-team6";
 				String user; // assumes database name is the same as username
@@ -78,7 +80,9 @@ table, th, td {
 					con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs157A-team6?autoReconnect=true&useSSL=false", user, password);
 					Statement stmt = con.createStatement();
 
-					ResultSet rs = stmt.executeQuery("SELECT Team_Name, count(*) FROM Shot where Match_ID=1 and shot_type like '%2%' GROUP BY 1;");
+					int matchid= Integer.parseInt(matchidstring);
+					String query = "SELECT Team_Name, count(*) FROM Shot where Match_ID=" + matchid  + " and shot_type like '%2%' GROUP BY 1;";
+					ResultSet rs = stmt.executeQuery(query);
 
 					out.println(" <table> <caption> 2 Point Shots </caption> <tr> <th>Team Name</th> <th># of Shots </th> </tr>");
 					while (rs.next()) {
@@ -89,7 +93,8 @@ table, th, td {
 					out.println("<br>");
 					out.println("<br>");
 
-					rs = stmt.executeQuery("SELECT Team_Name, count(*) FROM Shot where Match_ID=1 and shot_type like '%3%' GROUP BY 1;");
+					query = "SELECT Team_Name, count(*) FROM Shot where Match_ID=" + matchid  + " and shot_type like '%3%' GROUP BY 1;";
+					rs = stmt.executeQuery(query);
 
                                         out.println(" <table> <caption> 3 Point Shots </caption> <tr> <th>Team Name</th> <th># of Shots </th> </tr>");                        
                                         while (rs.next()) {
@@ -100,7 +105,8 @@ table, th, td {
 					out.println("<br>");
 					out.println("<br>");
 
-					rs = stmt.executeQuery("SELECT Team_Name, count(*) FROM Shot where Match_ID=1 and shot_type like '%free%' GROUP BY 1;");
+					query = "SELECT Team_Name, count(*) FROM Shot where Match_ID=" + matchid  + " and shot_type like '%free%' GROUP BY 1;";
+					rs = stmt.executeQuery(query);
 
                                         out.println(" <table> <caption> Free Throws </caption> <tr> <th>Team Name</th> <th># of Shots </th> </tr>");                        
                                         while (rs.next()) {
@@ -111,7 +117,8 @@ table, th, td {
 					out.println("<br>");
 					out.println("<br>");
 
-					rs = stmt.executeQuery("Select player.Name, player.Team_Name, count(*) as 'Number of Shots' from Shot, player where player.Number = shot.Player_Number and player.Team_Name = shot.Team_Name and shot.Match_ID = 1  group by 1,2 order by 3 desc; ");
+					query = "Select player.Name, player.Team_Name, count(*) as 'Number of Shots' from Shot, player where player.Number = shot.Player_Number and player.Team_Name = shot.Team_Name and shot.Match_ID =" + matchid + "  group by 1,2 order by 3 desc; ";
+					rs = stmt.executeQuery(query);
 
                                         out.println(" <table> <caption> # of Shots by Player </caption> <tr> <th>Player Name</th> <th>Team Name</th> <th># of Shots </th> </tr>");                        
                                         while (rs.next()) {
