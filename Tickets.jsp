@@ -65,9 +65,9 @@ table, th, td {
 								+ "<td>" + rs.getString(3) + "</td>"
 								+ "<td>" + rs.getString(4) + "</td>"
 								+ "<td>"
-									+ "<form style=\"padding:0px\" action=\"Checkout.jsp\" method=\"POST\"><input"
-									+ "type=\"hidden\" name=\"match\" value=\"" + rs.getString(1) + "\"><input type=\"submit\""
-									+ "value=\"Get Tickets\" /></form>"
+									+ "<form style=\"padding:0px\" action=\"Checkout.jsp\" method=\"POST\">" 
+									+ "<input type=\"hidden\" name=\"match\" value=\"" + rs.getString(1) + "\">" 
+									+ "<input type=\"submit\"value=\"Get Tickets\" /></form>"
 								+ "</td>"
 							+ "</tr>");
 					}
