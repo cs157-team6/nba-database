@@ -97,9 +97,14 @@ table, th, td {
 					//seats already selected will never be an option: Thus no need to check if it exists!
 					String insertQuery2 = "";
 					for(String seat : list){
-						insertQuery2 = insertQuery2 + "insert into reserved values ('"+seat+"', '"+stadium+"', '"+id+"', '"+customerID+"');";
+						insertQuery2 = "insert into reserved values (?, ?, ?, ?);";
+						ps = con.prepareStatement(insertQuery2);
+						ps.setString(1,seat);
+						ps.setString(2,stadium);
+						ps.setString(3,id);
+						ps.setString(4,customerID);
+						ps.executeUpdate();
 					}
-					int res = stmt.executeUpdate(insertQuery2);
 					
 					out.print("<div class=\"heading\"><h2>Purchase Confirmed!</h2></div>");
 					//out.print("<div class= \"row justify-content-md-center\"><div class= \"col-md-3\"><h4>Purchased for: "+last+", "+first+"</h4></div></div><div class= \"row justify-content-md-center\"><div class= \"col-md-3\"><h4>At: "+email+"</h4></div></div>");
