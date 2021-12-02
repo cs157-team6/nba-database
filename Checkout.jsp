@@ -45,11 +45,21 @@ table, th, td {
 					<h2> Checkout</h2>
 				</div>
 				<div class="container">
+					<form action="Confirmation.jsp" method="POST">
 				<%
+				/*
+				if((int) session.getAttribute("step") != 1){
+					response.sendRedirect("Tickets.jsp");	
+				}
+				else{
+					session.setAttribute("step", 2);
+				}
+				*/
+				
 				String db = "cs157A-team6";
 				String user; // assumes database name is the same as username
 				user = "root";
-				String password = "O5Fu3!T9fs";
+				String password = "root";
 				try {
 					java.sql.Connection con;
 					Class.forName("com.mysql.jdbc.Driver");
@@ -61,15 +71,15 @@ table, th, td {
 					String stadium ="";
 					if(rs.next()) {
 						stadium = rs.getString(3);
-						out.println("<h2>Match: " + rs.getString(1) + " VS " + rs.getString(2) + "</h2><br/><h2>Stadium: "+stadium+ "</h2><br/><h3>Seats remaining: " + (rs.getInt(4) - rs.getInt(5)) + "</h3><br/>");
+						out.println("<h4>Match: " + rs.getString(1) + " VS " + rs.getString(2) + "</h4><h4>Stadium: "+stadium+ "</h4><h4>Seats remaining: " + (rs.getInt(4) - rs.getInt(5)) + "</h4><br/>");
 					}
 					rs = stmt.executeQuery("Select Seat_Number from seat Where seat_number NOT IN (select Seat_Number from reserved where Match_ID = '"+id+"') AND Stadium_Name = '"+stadium+"';");
-					out.println("<form action=\"Confirmation.jsp\" method=\"POST\">");
+					
 					while (rs.next()){
 						int val = rs.getInt(1);
 						out.println("<input type= \"checkbox\" name = \"seats\" value = \""+ val +"\">Seat #"+ val +"</input>");
 					}
-					out.println("<input type=\"hidden\" name= \"match\" value=\"" + id +"\"><input type=\"hidden\" name= \"stadium\" value=\"" + stadium +"\"><input type=\"submit\" value = \"Purchase\"></form>");
+					out.println("<input type=\"hidden\" name= \"match\" value=\"" + id +"\"><input type=\"hidden\" name= \"stadium\" value=\"" + stadium +"\">");
 					rs.close();
 					stmt.close();
 					con.close();
@@ -77,6 +87,15 @@ table, th, td {
 					out.println("SQLException caught: " + e.getMessage());
 				}
 				%>
+						First Name:
+						<input type="text" name ="firstName" required>
+						Last Name:
+						<input type="text" name = "lastName" required>
+						Email:
+						<input type="text" name = "email" required>
+				
+						<input type="submit" value = "Purchase">
+					</form>
 				</div>
 			</div>
 		</section>

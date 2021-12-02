@@ -44,10 +44,12 @@ table, th, td {
 					<h2>Seat Availability</h2>
 				</div>
 				<%
+				//session.setAttribute("step", 1);
+				
 				String db = "cs157A-team6";
 				String user; // assumes database name is the same as username
 				user = "root";
-				String password = "6eP5hy!Vy@@QstA3o8mwRdnK";
+				String password = "root";
 				try {
 					java.sql.Connection con;
 					Class.forName("com.mysql.jdbc.Driver");

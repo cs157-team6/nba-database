@@ -42,10 +42,19 @@ table, th, td {
 		<section class="portfolio-block projects-cards">
 			<div class="container">
 				<%
+				/*
+				if((int) session.getAttribute("step") != 2){
+					response.sendRedirect("Tickets.jsp");
+				}
+				else{
+					session.removeAttribute("step");
+				}
+				*/
+				
 				String db = "cs157A-team6";
 				String user; // assumes database name is the same as username
 				user = "root";
-				String password = "O5Fu3!T9fs";
+				String password = "root";
 				try {
 					java.sql.Connection con;
 					Class.forName("com.mysql.jdbc.Driver");
@@ -55,18 +64,43 @@ table, th, td {
 					String[] list = request.getParameterValues("seats");
 					String id = request.getParameter("match");
 					String stadium = request.getParameter("stadium");
-					UserBean customer = (UserBean) session.getAttribute("user");
-					ResultSet set = stmt.executeQuery("select ID from customer where Email = '"+ customer.getEmail()+"';");
+					String first =request.getParameter("firstName");
+					String last =request.getParameter("lastName");
+					String email =request.getParameter("email");
+					//check if user exists
+					String userQuery = "select ID from customer where Email  = (?);";
+					PreparedStatement ps = con.prepareStatement(userQuery);
+					ps.setString(1, email);
+					ResultSet set = ps.executeQuery();
 					int customerID = 0;
-					if(set.next()){
+					if(set.next()){//result found
 						customerID = set.getInt(1);
 					}
-					
-					String insertQuery = "";
-					for(String seat : list){
-						insertQuery = insertQuery + "insert into reserved values ('"+seat+"', '"+stadium+"', '"+id+"', '"+customerID+"');";
+					else{//no customer exists
+						
+						String insertQuery1 = "insert into customer (First_Name, Last_Name, Email) values (?,?,?);";
+						ps = con.prepareStatement(insertQuery1);
+						ps.setString(1, first);
+						ps.setString(2, last);
+						ps.setString(3, email);
+						ps.executeUpdate();
+						
+						userQuery = "select ID from customer where Email  = (?);";
+						ps = con.prepareStatement(userQuery);
+						ps.setString(1, email);
+						set = ps.executeQuery();
+						if(set.next()){//result found
+							customerID = set.getInt(1);
+						}
 					}
-					int res = stmt.executeUpdate(insertQuery);
+					
+					//seats already selected will never be an option: Thus no need to check if it exists!
+					String insertQuery2 = "";
+					for(String seat : list){
+						insertQuery2 = insertQuery2 + "insert into reserved values ('"+seat+"', '"+stadium+"', '"+id+"', '"+customerID+"');";
+					}
+					int res = stmt.executeUpdate(insertQuery2);
+					
 					out.print("<div class=\"heading\"><h2>Purchase Confirmed!</h2></div>");
 					set.close();
 					stmt.close();
