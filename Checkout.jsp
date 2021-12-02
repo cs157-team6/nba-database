@@ -25,7 +25,7 @@ table, th, td {
 	<nav
 		class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
 		<div class="container">
-			<a class="navbar-brand logo" href="#">NBA Database</a>
+			<a class="navbar-brand logo" href="Home.html">NBA Database</a>
 			<button data-bs-toggle="collapse" class="navbar-toggler"
 				data-bs-target="#navbarNav-1">
 				<span class="visually-hidden">Toggle navigation</span><span
@@ -33,7 +33,7 @@ table, th, td {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav-1">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="Home.jsp">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
 				</ul>
 			</div>
 		</div>
@@ -45,7 +45,7 @@ table, th, td {
 					<h2> Checkout</h2>
 				</div>
 				<div class="container">
-					<form action="Confirmation.jsp" method="POST">
+					<form class ="form-check" action="Confirmation.jsp" method="POST">
 				<%
 				/*
 				if((int) session.getAttribute("step") != 1){
@@ -71,15 +71,15 @@ table, th, td {
 					String stadium ="";
 					if(rs.next()) {
 						stadium = rs.getString(3);
-						out.println("<h4>Match: " + rs.getString(1) + " VS " + rs.getString(2) + "</h4><h4>Stadium: "+stadium+ "</h4><h4>Seats remaining: " + (rs.getInt(4) - rs.getInt(5)) + "</h4><br/>");
+						out.println("<h4>Match: " + rs.getString(1) + " VS " + rs.getString(2) + "</h4><h4>Stadium: "+stadium+ "</h4><h4>Seats remaining: " + (rs.getInt(4) - rs.getInt(5)) + "</h4><br/><div class=\"mb-3\"><div class=\"row row-cols-4\">");
 					}
 					rs = stmt.executeQuery("Select Seat_Number from seat Where seat_number NOT IN (select Seat_Number from reserved where Match_ID = '"+id+"') AND Stadium_Name = '"+stadium+"';");
 					
 					while (rs.next()){
 						int val = rs.getInt(1);
-						out.println("<input type= \"checkbox\" name = \"seats\" value = \""+ val +"\">Seat #"+ val +"</input>");
+						out.println("<div class=\"col d-flex justify-content-center\"><div class=\"\"><input class=\"form-check-input\" type= \"checkbox\" name = \"seats\" value = \""+ val +"\" id = \""+ val +"\"><label class=\"form-check-label\" for=\""+ val +"\">Seat #"+ val +"</label></div></div>");
 					}
-					out.println("<input type=\"hidden\" name= \"match\" value=\"" + id +"\"><input type=\"hidden\" name= \"stadium\" value=\"" + stadium +"\">");
+					out.println("</div></div><input type=\"hidden\" name= \"match\" value=\"" + id +"\"><input type=\"hidden\" name= \"stadium\" value=\"" + stadium +"\">");
 					rs.close();
 					stmt.close();
 					con.close();
@@ -87,14 +87,19 @@ table, th, td {
 					out.println("SQLException caught: " + e.getMessage());
 				}
 				%>
-						First Name:
-						<input type="text" name ="firstName" required>
-						Last Name:
-						<input type="text" name = "lastName" required>
-						Email:
-						<input type="text" name = "email" required>
-				
-						<input type="submit" value = "Purchase">
+						
+						<div class="mb-3">
+						  <input type="text" placeholder="First Name" class="form-control" name ="firstName" required>
+						</div>
+						<div class="mb-3">
+						  <input type="text" placeholder="Last Name" class="form-control" name = "lastName" required>
+						</div>
+						<div class="mb-3">
+						  <input type="text" placeholder="example@email.com" class="form-control" name = "email" required>
+						</div>
+						<div class="d-flex justify-content-center">
+						<input class="btn btn-primary" type="submit" value = "Purchase">
+						</div>
 					</form>
 				</div>
 			</div>
