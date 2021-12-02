@@ -25,7 +25,7 @@ table, th, td {
 	<nav
 		class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
 		<div class="container">
-			<a class="navbar-brand logo" href="#">NBA Database</a>
+			<a class="navbar-brand logo" href="Home.html">NBA Database</a>
 			<button data-bs-toggle="collapse" class="navbar-toggler"
 				data-bs-target="#navbarNav-1">
 				<span class="visually-hidden">Toggle navigation</span><span
@@ -33,7 +33,7 @@ table, th, td {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav-1">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="Home.jsp">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
 				</ul>
 			</div>
 		</div>
@@ -95,13 +95,17 @@ table, th, td {
 					}
 					
 					//seats already selected will never be an option: Thus no need to check if it exists!
+					/*
 					String insertQuery2 = "";
 					for(String seat : list){
 						insertQuery2 = insertQuery2 + "insert into reserved values ('"+seat+"', '"+stadium+"', '"+id+"', '"+customerID+"');";
 					}
 					int res = stmt.executeUpdate(insertQuery2);
+					*/
 					
 					out.print("<div class=\"heading\"><h2>Purchase Confirmed!</h2></div>");
+					//out.print("<div class= \"row justify-content-md-center\"><div class= \"col-md-3\"><h4>Purchased for: "+last+", "+first+"</h4></div></div><div class= \"row justify-content-md-center\"><div class= \"col-md-3\"><h4>At: "+email+"</h4></div></div>");
+					out.print("<div class= \"row justify-content-md-center\"><div class= \"col-md-auto\"><a class = \"btn btn-primary text-white\" href=\"Tickets.jsp\">Browse Upcoming Games</a></div></div> ");
 					set.close();
 					stmt.close();
 					con.close();
