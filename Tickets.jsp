@@ -59,7 +59,14 @@ form{
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav-1">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Matches.jsp">Matches</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Tickets.jsp">Tickets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Teams.jsp">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Players.jsp">Players</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Stadiums.jsp">Stadiums</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Records.jsp">Records</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Analytics.jsp">Analytics</a></li>
 				</ul>
 			</div>
 		</div>
@@ -76,7 +83,7 @@ form{
 				String db = "cs157A-team6";
 				String user; // assumes database name is the same as username
 				user = "root";
-				String password = "root";
+				String password = "6eP5hy!Vy@@QstA3o8mwRdnK";
 				try {
 					java.sql.Connection con;
 					Class.forName("com.mysql.jdbc.Driver");
@@ -85,10 +92,9 @@ form{
 					Statement stmt = con.createStatement();
 					Statement stmtTeam1 = con.createStatement();
 					Statement stmtTeam2 = con.createStatement();
-					//ResultSet rs = stmt.executeQuery("SELECT * FROM record");
 					ResultSet rs = stmt.executeQuery(
-					"Select   Matches.Match_ID, Stadium.Name, Stadium.Capacity, count(*), Matches.Team1Name, Matches.Team2Name, Matches.Date, Matches.Time from `cs157A-team6`.Reserved, `cs157A-team6`.Matches, `cs157A-team6`.Stadium where `cs157A-team6`.Reserved.Match_ID = `cs157A-team6`.Matches.Match_ID and `cs157A-team6`.Matches.Stadium_Name = `cs157A-team6`.Stadium.Name group by 1;");
-					out.println("<input type='text' id='searchBar' onkeyup='searchFunc()' placeholder='Search by team, stadium, or date...'>");
+					"Select   Matches.Match_ID, Stadium.Name, Stadium.Capacity, count(*), Matches.Team1Name, Matches.Team2Name, DATE_FORMAT(Date, '%m-%d-%Y') Date, TIME_FORMAT(Time, '%h:%i %p') Time from `cs157A-team6`.Reserved, `cs157A-team6`.Matches, `cs157A-team6`.Stadium where `cs157A-team6`.Reserved.Match_ID = `cs157A-team6`.Matches.Match_ID and `cs157A-team6`.Matches.Stadium_Name = `cs157A-team6`.Stadium.Name group by 1 ORDER BY Date ASC, Time ASC;");
+					out.println("<input type='text' id='searchBar' onkeyup='searchFunc()' placeholder='Search by date, team, or stadium...'>");
 					out.println("<table id=\"TicketsTable\"><tr><th>Date & Time</th><th>Team 1</th><th>Team 2</th><th>Stadium</th><th>Capacity</th><th>Seats-Taken</th></tr>");
 					while (rs.next()) {
 						ResultSet rsTeam1 = stmtTeam1
