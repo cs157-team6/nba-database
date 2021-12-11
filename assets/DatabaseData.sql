@@ -529,31 +529,31 @@ INSERT INTO `seat` (`Seat_Number`,`Stadium_Name`) VALUES (150,'State Farm Arena'
 -- Date: 2021-12-10 18:00
 */
 CREATE TABLE Shot (Match_ID INT, Shot_Number INT, Shot_Type VARCHAR(100), Player_Number TINYINT, Team_Name VARCHAR(100));
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (3,3,'3 pointer',3,'Brooklyn Nets');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (2,3,'free throw',5,'San Antoino Spurs');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (4,4,'2 pointer',6,'Golden State Warriors');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (5,6,'3 pointer',7,'Milwaukee Bucks');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (6,3,'free throw',8,'Miami Heat');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (7,2,'2 pointer',5,'Sacramento Kings');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (8,5,'3 pointer',9,'Portland Trail Blazers');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (9,4,'free throw',10,'Cleveland Cavaliers');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (10,3,'2 pointer',11,'Charlotte Hornets');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (11,2,'3 pointer',12,'Minnesota Timberwolves');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (12,5,'free throw',13,'Chicago Bulls');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (13,4,'2 pointer',14,'Philadelphia 76ers');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (14,3,'3 pointer',15,'New York Knicks');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (15,2,'free throw',16,'Dallas Mavericks');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,4,'2 pointer',17,'Orlando Magic');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,1,'3 pointer',3,'Orlando Magic');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,2,'2 pointer',1,'San Antonio Spurs');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,3,'2 pointer',1,'Orlando Magic');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,4,'2 pointer',1,'Orlando Magic');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,5,'2 pointer',3,'Orlando Magic');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,6,'free throw',5,'San Antonio Spurs');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,7,'free throw',7,'San Antonio Spurs');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,8,'3 pointer',4,'Orlando Magic');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,9,'2 pointer',15,'Orlando Magic');
-INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (1,10,'free throw',4,'San Antonio Spurs');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (18,3,'3 pointer',3,'Brooklyn Nets');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (17,3,'free throw',5,'San Antoino Spurs');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (19,4,'2 pointer',6,'Golden State Warriors');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (20,6,'3 pointer',7,'Milwaukee Bucks');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (21,3,'free throw',8,'Miami Heat');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (22,2,'2 pointer',5,'Sacramento Kings');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (23,5,'3 pointer',9,'Portland Trail Blazers');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (24,4,'free throw',10,'Cleveland Cavaliers');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (25,3,'2 pointer',11,'Charlotte Hornets');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (26,2,'3 pointer',12,'Minnesota Timberwolves');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (27,5,'free throw',13,'Chicago Bulls');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (28,4,'2 pointer',14,'Philadelphia 76ers');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (29,3,'3 pointer',15,'New York Knicks');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (30,2,'free throw',16,'Dallas Mavericks');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,4,'2 pointer',17,'Orlando Magic');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,1,'3 pointer',3,'Orlando Magic');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,2,'2 pointer',1,'San Antonio Spurs');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,3,'2 pointer',1,'Orlando Magic');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,4,'2 pointer',1,'Orlando Magic');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,5,'2 pointer',3,'Orlando Magic');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,6,'free throw',5,'San Antonio Spurs');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,7,'free throw',7,'San Antonio Spurs');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,8,'3 pointer',4,'Orlando Magic');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,9,'2 pointer',15,'Orlando Magic');
+INSERT INTO `shot` (`Match_ID`,`Shot_Number`,`Shot_Type`,`Player_Number`,`Team_Name`) VALUES (16,10,'free throw',4,'San Antonio Spurs');
 /*
 -- Query: SELECT * FROM `cs157a-team6`.stadium
 -- Date: 2021-12-10 18:02
