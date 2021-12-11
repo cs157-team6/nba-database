@@ -353,22 +353,22 @@ INSERT INTO `referee` (`Referee_ID`,`First_Name`,`Last_Name`) VALUES (15,'Alex',
 -- Query: SELECT * FROM `cs157a-team6`.reserved
 -- Date: 2021-12-10 17:59
 */
-CREATE TABLE Reserved (Seat_Number INT, Stadium_Name VARCHAR(100), Match_ID INT, Customer_ID INT, Price INT);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (1,'Amway Center',1,1,50);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (2,'AT&T Center',2,2,25);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (3,'Barclays Center',3,3,75);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (4,'Chase Center',4,4,100);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (5,'Fiserv Forum',5,5,105);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (6,'FTX Arena',6,6,80);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (7,'Golden 1 Center',7,7,95);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (8,'Madison Square Guarden',8,8,115);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (9,'Moda Center',9,9,85);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (10,'Rocket Mortgage FieldHouse',10,10,130);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (11,'Spectrum Center',11,11,111);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (12,'Target Center',12,12,45);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (13,'United Center',13,13,100);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (14,'Wells Fargo Center',14,14,90);
-INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`,`Price`) VALUES (15,'State Farm Arena',15,15,45);
+CREATE TABLE Reserved (Seat_Number INT, Stadium_Name VARCHAR(100), Match_ID INT, Customer_ID INT, PRIMARY KEY (Seat_Number, Match_ID, Customer_ID));
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (1,'Amway Center',1,1);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (2,'AT&T Center',2,2);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (3,'Barclays Center',3,3);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (4,'Chase Center',4,4);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (5,'Fiserv Forum',5,5);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (6,'FTX Arena',6,6);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (7,'Golden 1 Center',7,7);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (8,'Madison Square Guarden',8,8);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (9,'Moda Center',9,9);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (10,'Rocket Mortgage FieldHouse',10,10);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (11,'Spectrum Center',11,11);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (12,'Target Center',12,12);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (13,'United Center',13,13);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (14,'Wells Fargo Center',14,14);
+INSERT INTO `reserved` (`Seat_Number`,`Stadium_Name`,`Match_ID`,`Customer_ID`) VALUES (15,'State Farm Arena',15,15);
 /*
 -- Query: SELECT * FROM `cs157a-team6`.seat
 -- Date: 2021-12-10 17:56
