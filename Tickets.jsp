@@ -94,7 +94,7 @@ form{
 					Statement stmtTeam2 = con.createStatement();
 					ResultSet rs = stmt.executeQuery(
 					"Select   Matches.Match_ID, Stadium.Name, Stadium.Capacity, count(*), Matches.Team1Name, Matches.Team2Name, DATE_FORMAT(Date, '%m-%d-%Y') Date, TIME_FORMAT(Time, '%h:%i %p') Time from `cs157A-team6`.Reserved, `cs157A-team6`.Matches, `cs157A-team6`.Stadium where `cs157A-team6`.Reserved.Match_ID = `cs157A-team6`.Matches.Match_ID and `cs157A-team6`.Matches.Stadium_Name = `cs157A-team6`.Stadium.Name group by 1 ORDER BY Date ASC, Time ASC;");
-					out.println("<input type='text' id='searchBar' onkeyup='searchFunc()' placeholder='Search by date, team, or stadium...'>");
+					out.println("<input type='text' id='searchBar' onkeyup='searchFunc()' placeholder='Search by team or stadium...'>");
 					out.println("<table id=\"TicketsTable\"><tr><th>Date & Time</th><th>Team 1</th><th>Team 2</th><th>Stadium</th><th>Capacity</th><th>Seats-Taken</th></tr>");
 					while (rs.next()) {
 						ResultSet rsTeam1 = stmtTeam1
