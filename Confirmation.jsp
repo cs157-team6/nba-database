@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*,logic.UserBean"%>
+<%@ page import="java.sql.*"%>
 <html>
 
 <head>
