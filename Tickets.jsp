@@ -92,6 +92,7 @@ form{
 					Statement stmt = con.createStatement();
 					Statement stmtTeam1 = con.createStatement();
 					Statement stmtTeam2 = con.createStatement();
+					Statement stmtSeat = con.createStatement();
 					//ResultSet rs = stmt.executeQuery("SELECT * FROM record");
 					ResultSet rs = stmt.executeQuery(
 					"Select   Matches.Match_ID, Stadium.Name, Stadium.Capacity, count(*), Matches.Team1Name, Matches.Team2Name, Matches.Date, Matches.Time from `cs157A-team6`.Reserved, `cs157A-team6`.Matches, `cs157A-team6`.Stadium where `cs157A-team6`.Reserved.Match_ID = `cs157A-team6`.Matches.Match_ID and `cs157A-team6`.Matches.Stadium_Name = `cs157A-team6`.Stadium.Name group by 1;");
@@ -104,21 +105,30 @@ form{
 						ResultSet rsTeam2 = stmtTeam2
 						.executeQuery("SELECT ImgLinkHTML FROM team WHERE Name = '" + rs.getString(6) + "'");
 						rsTeam2.next();
+						ResultSet rsSeat = stmtSeat
+						.executeQuery("Select count(Seat_Number) from seat Where seat_number NOT IN (select Seat_Number from reserved where Match_ID = '"+ rs.getString(1)+"') AND Stadium_Name = '"+rs.getString(2)+"';");
+						rsSeat.next();
 						out.println("<tr>"
 								+ "<td><div>" + rs.getString(7) + "<br>" + rs.getString(8) + "</div></td>"
 								+ "<td><div>" + rsTeam1.getString(1) + "<br><br><b>" + rs.getString(5) + "</b></div></td>"
 								+ "<td><div>" + rsTeam2.getString(1) + "<br><br><b>" + rs.getString(6) + "</b></div></td>"
 								+ "<td>" + rs.getString(2) + "</td>"
 								+ "<td>" + rs.getString(3) + "</td>"
-								+ "<td>" + (rs.getInt(3) - rs.getInt(4)) + "</td>"
+								+ "<td>" + rsSeat.getString(1) + "</td>"
 								+ "<td>"
 									+ "<form style=\"box-shadow:0px 0px 0px\" action=\"Checkout.jsp\" method=\"POST\">" 
 									+ "<input type=\"hidden\" name=\"match\" value=\"" + rs.getString(1) + "\">" 
 									+ "<input class=\"btn btn-primary\" type=\"submit\"value=\"Get Tickets\" /></form>"
 								+ "</td>"
 							+ "</tr>");
+						rsTeam1.close();
+						rsTeam2.close();
+						rsSeat.close();
 					}
 					out.println("</table>");
+					stmtTeam1.close();
+					stmtTeam2.close();
+					stmtSeat.close();
 					rs.close();
 					stmt.close();
 					con.close();
