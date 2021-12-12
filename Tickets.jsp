@@ -115,12 +115,15 @@ form{
 								+ "<td>" + rs.getString(2) + "</td>"
 								+ "<td>" + rs.getString(3) + "</td>"
 								+ "<td>" + rsSeat.getString(1) + "</td>"
-								+ "<td>"
-									+ "<form style=\"box-shadow:0px 0px 0px\" action=\"Checkout.jsp\" method=\"POST\">" 
+								+ "<td>");
+						if(rsSeat.getInt(1)>0)
+						out.println("<form style=\"box-shadow:0px 0px 0px\" action=\"Checkout.jsp\" method=\"POST\">" 
 									+ "<input type=\"hidden\" name=\"match\" value=\"" + rs.getString(1) + "\">" 
-									+ "<input class=\"btn btn-primary\" type=\"submit\"value=\"Get Tickets\" /></form>"
-								+ "</td>"
-							+ "</tr>");
+									+ "<input class=\"btn btn-primary\" type=\"submit\"value=\"Get Tickets\" /></form>");
+						else
+							out.println("<div><b>SOLD OUT</b></div>");
+						System.out.println(rsSeat.getInt(1));
+						out.println("</td></tr>");
 						rsTeam1.close();
 						rsTeam2.close();
 						rsSeat.close();
