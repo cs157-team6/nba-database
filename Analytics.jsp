@@ -11,7 +11,7 @@
 	href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
 <style>
 #searchBar {
-	background-image: url('assets/MagnifyingGlass.png');
+	background-image: url('assets/img/MagnifyingGlass.png');
 	background-position: 13px 13px;
 	background-repeat: no-repeat;
 	display: block;
