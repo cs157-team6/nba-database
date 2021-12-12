@@ -102,7 +102,7 @@ table, th, td {
 						ps.setString(1,seat);
 						ps.setString(2,stadium);
 						ps.setString(3,id);
-						ps.setString(4,customerID);
+						ps.setInt(4,customerID);
 						ps.executeUpdate();
 					}
 					
